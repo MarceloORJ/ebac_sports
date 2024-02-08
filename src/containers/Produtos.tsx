@@ -1,22 +1,22 @@
 import Produto from '../components/Produto'
-import { useGetJogosQuery } from '../services/api'
+
+import { useGetProdutosQuery } from '../services/api'
 
 import * as S from './styles'
 
-const Produtos = () => {
-  const { data: jogos, isLoading } = useGetJogosQuery()
-
+const ProdutosComponent = () => {
+  const { data: produtos, isLoading } = useGetProdutosQuery()
   if (isLoading) return <h2>Carregando...</h2>
 
   return (
     <>
       <S.Produtos>
-        {jogos?.map((game) => (
-          <Produto key={game.id} game={game} />
+        {produtos?.map((produto) => (
+          <Produto key={produto.id} produto={produto} />
         ))}
       </S.Produtos>
     </>
   )
 }
 
-export default Produtos
+export default ProdutosComponent

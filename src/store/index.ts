@@ -9,8 +9,8 @@ export const store = configureStore({
     carrinho: carrinhoReducer,
     [api.reducerPath]: api.reducer
   },
-  middleware: (buildGetDefaultMiddleware) =>
-    buildGetDefaultMiddleware().concat(api.middleware)
+  middleware: (getDefaultMiddleware) =>
+    getDefaultMiddleware().concat(api.middleware)
 })
 
 export type RootReducer = ReturnType<typeof store.getState>
